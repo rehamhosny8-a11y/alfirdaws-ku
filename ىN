@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفردوس لأفراح ومناسبات الكويت | فخامة التجهيز وذوق التفاصيل</title>
+    <meta name="description" content="خبرة متكاملة في تنظيم وتجهيز كافة المناسبات والأفراح والضيافة في جميع مناطق وصالات الكويت.">
+    
+    <!-- استيراد مكتبة Tailwind CSS للتصميم المتجاوب -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- استيراد خطوط عربية فخمة من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,700;1,700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- إعدادات الهوية البصرية والألوان الخاصة بالموقع -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF7F2',
+                        sand: '#F3EFEA',
+                        obsidian: '#141414',
+                        charcoal: '#22201E',
+                        gold: {
+                            DEFAULT: '#C5A059',
+                            light: '#DFC389',
+                            dark: '#9E7B36',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                        serif: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* تنسيقات إضافية لإبراز الفخامة والحركة الناعمة */
+        body {
+            background-color: #FAF7F2;
+            color: #141414;
+            overflow-x: hidden;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #C5A059 0%, #9E7B36 100%);
+        }
+        
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #DFC389 0%, #C5A059 50%, #9E7B36 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(20, 20, 20, 0.72), rgba(20, 20, 20, 0.88)), 
+                              url('https://lh3.googleusercontent.com/d/1Dl8tThjb9lVn58NDmjJlKr0g62wR573Y=w1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* تأثير الظهور التدريجي عند التمرير */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* تنسيق شريط التمرير */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF7F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold selection:text-white">
+
+    <!-- ================= 1. شريط التنقل العلوي (Navbar) ================= -->
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- الشعار -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-full gold-gradient flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition">
+                        <i class="fa-solid fa-crown text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-2xl font-bold text-white tracking-wide">الفردوس</span>
+                        <span class="block text-xs text-gold-light -mt-1">لأفراح ومناسبات الكويت</span>
+                    </div>
+                </a>
+
+                <!-- روابط التنقل (سطح المكتب) -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-200">
+                    <a href="#home" class="hover:text-gold transition">الرئيسية</a>
+                    <a href="#about" class="hover:text-gold transition">من نحن</a>
+                    <a href="#services" class="hover:text-gold transition">خدماتنا</a>
+                    <a href="#portfolio" class="hover:text-gold transition">معرض أعمالنا</a>
+                    <a href="#packages" class="hover:text-gold transition">الباقات والعروض</a>
+                    <a href="#contact" class="hover:text-gold transition">تواصل معنا</a>
+                </nav>
+
+                <!-- زر الحجز السريع + زر قائمة الموبايل -->
+                <div class="flex items-center gap-3">
+                    <a href="#contact" 
+                       class="hidden sm:inline-flex items-center gap-2 gold-gradient hover:opacity-95 text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md transition">
+                        <i class="fa-regular fa-calendar-check text-base"></i>
+                        <span>احجز الآن</span>
+                    </a>
+                    <button id="mobile-menu-btn" aria-label="فتح القائمة" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- قائمة الموبايل المنسدلة -->
+        <div id="mobile-menu" class="hidden md:hidden bg-obsidian border-t border-gold/20 px-4 pt-3 pb-6 space-y-2">
+            <a href="#home" class="mobile-link block py-2.5 px-3 rounded-lg text-white hover:bg-gold/10 hover:text-gold font-semibold">الرئيسية</a>
+            <a href="#about" class="mobile-link block py-2.5 px-3 rounded-lg text-white hover:bg-gold/10 hover:text-gold font-semibold">من نحن</a>
+            <a href="#services" class="mobile-link block py-2.5 px-3 rounded-lg text-white hover:bg-gold/10 hover:text-gold font-semibold">خدماتنا</a>
+            <a href="#portfolio" class="mobile-link block py-2.5 px-3 rounded-lg text-white hover:bg-gold/10 hover:text-gold font-semibold">معرض أعمالنا</a>
+            <a href="#packages" class="mobile-link block py-2.5 px-3 rounded-lg text-white hover:bg-gold/10 hover:text-gold font-semibold">الباقات والعروض</a>
+            <a href="#contact" class="mobile-link block py-2.5 px-3 rounded-lg text-white hover:bg-gold/10 hover:text-gold font-semibold">تواصل معنا</a>
+        </div>
+    </header>
+
+    <!-- ================= 2. قسم الواجهة الرئيسية (Hero Section) ================= -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center pt-20 px-4 text-center relative">
+        <div class="max-w-4xl mx-auto py-16">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-gold/40 text-gold-light text-xs sm:text-sm font-semibold mb-6 backdrop-blur-sm">
+                <i class="fa-solid fa-location-dot text-gold"></i>
+                <span>تغطية شاملة لجميع مناطق وصالات الكويت</span>
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                الفردوس لأفراح <span class="gold-text-gradient">ومناسبات الكويت</span>
+            </h1>
+            
+            <p class="text-gray-200 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+                فخامة التجهيز وذوق التفاصيل.. نرتقي بمناسباتكم وأفراحكم في الكويت بأرقى تشكيلات الأثاث الملكي، الكوش الفاخرة، والضيافة العربية الأصيلة لنصنع أجواءً تليق بضيوفكم.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#portfolio" class="w-full sm:w-auto gold-gradient text-white font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 transition flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-images text-lg"></i>
+                    <span>تصفح أعمالنا</span>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-sm font-bold px-8 py-4 rounded-full transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-gold text-lg"></i>
+                    <span>احجز الآن</span>
+                </a>
+            </div>
+
+            <!-- إحصائيات سريعة -->
+            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-16 pt-8 border-t border-white/15 text-white">
+                <div>
+                    <span class="block font-serif text-2xl sm:text-3xl font-bold text-gold">+10</span>
+                    <span class="text-xs sm:text-sm text-gray-300">سنوات خبرة بالكويت</span>
+                </div>
+                <div>
+                    <span class="block font-serif text-2xl sm:text-3xl font-bold text-gold">100%</span>
+                    <span class="text-xs sm:text-sm text-gray-300">تغطية كافة المحافظات</span>
+                </div>
+                <div>
+                    <span class="block font-serif text-2xl sm:text-3xl font-bold text-gold">VIP</span>
+                    <span class="text-xs sm:text-sm text-gray-300">أثاث ملكي وتنسيق راقٍ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. قسم من نحن (About Us) ================= -->
+    <section id="about" class="py-20 sm:py-28 bg-cream px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal">
+                <!-- صورة تعريفية فاخرة من أعمال الفردوس -->
+                <div class="lg:col-span-6 relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://lh3.googleusercontent.com/d/1A4604EeBuK9Egmc4m4si42fI9Le32ZJa=w1200" 
+                             onerror="this.src='https://drive.google.com/thumbnail?id=1A4604EeBuK9Egmc4m4si42fI9Le32ZJa&sz=w1000'"
+                             alt="تجهيز قاعات ومجالس فاخرة في الكويت" 
+                             class="w-full h-[380px] sm:h-[460px] object-cover hover:scale-105 transition duration-700">
+                    </div>
+                    <!-- بطاقة عائمة -->
+                    <div class="absolute -bottom-6 right-6 left-6 sm:left-auto sm:w-72 bg-obsidian text-white p-5 rounded-2xl shadow-xl border border-gold/30">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-gem text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">جودة استثنائية</p>
+                                <p class="text-xs text-gray-300 mt-0.5">أحدث تشكيلات الكنب والكراسي الملكية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- النص التعريفي -->
+                <div class="lg:col-span-6 lg:pr-6 mt-6 lg:mt-0">
+                    <span class="text-gold-dark font-bold text-sm tracking-wider uppercase block mb-2">من نحن</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-obsidian leading-snug mb-6">
+                        خبرة متكاملة في تنظيم وتجهيز الأفراح والمناسبات
+                    </h2>
+                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+                        نمتلك في <strong class="text-obsidian">الفردوس لأفراح ومناسبات الكويت</strong> خبرة متكاملة في تجهيز القاعات، الكنب الفاخر، الكراسي الملكية، الطاولات العصرية، الإضاءة المدروسة، وركن الضيافة في جميع مناطق دولة الكويت.
+                    </p>
+                    <p class="text-gray-600 text-base leading-relaxed mb-8">
+                        نحرص على تقديم أعلى مستويات الجودة والدقة في التنفيذ لنصنع لكم أجواءً استثنائية تليق بضيوفكم في حفلات الزفاف، الملجة، الاستقبالات، والمناسبات الخاصة وتبقى محفورة في الذاكرة.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 bg-sand p-3.5 rounded-xl">
+                            <i class="fa-solid fa-circle-check text-gold text-lg"></i>
+                            <span class="font-semibold text-sm text-obsidian">دقة في المواعيد وسرعة التنفيذ</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-sand p-3.5 rounded-xl">
+                            <i class="fa-solid fa-circle-check text-gold text-lg"></i>
+                            <span class="font-semibold text-sm text-obsidian">أطقم ضيافة وكوادر مدربة</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-sand p-3.5 rounded-xl">
+                            <i class="fa-solid fa-circle-check text-gold text-lg"></i>
+                            <span class="font-semibold text-sm text-obsidian">تشكيلات حديثة تناسب كل الأذواق</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-sand p-3.5 rounded-xl">
+                            <i class="fa-solid fa-circle-check text-gold text-lg"></i>
+                            <span class="font-semibold text-sm text-obsidian">تغطية شاملة لجميع مناطق الكويت</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. قسم خدماتنا (Services) ================= -->
+    <section id="services" class="py-20 sm:py-28 bg-sand px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-gold-dark font-bold text-sm block mb-2">ماذا نقدم لكم؟</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-obsidian mb-4">خدماتنا وتنسيقاتنا الفاخرة</h2>
+                <p class="text-gray-600 text-base sm:text-lg">حلول متكاملة مصممة بعناية لتلبي كافة احتياجات مناسباتكم الداخلية والخارجية بأعلى معايير الفخامة.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <!-- خدمة 1 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition duration-300 border border-gold/10 group">
+                    <div class="w-14 h-14 rounded-2xl bg-sand group-hover:bg-gold group-hover:text-white text-gold-dark flex items-center justify-center text-2xl mb-6 transition">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-obsidian mb-3">تنسيق الطاولات والضيافة</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        تشكيلات عصرية راقية لطاولات الاستقبال والضيافة تناسب حفلات الزفاف والملجة وأرقى التجمعات العائلية.
+                    </p>
+                </div>
+
+                <!-- خدمة 2 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition duration-300 border border-gold/10 group">
+                    <div class="w-14 h-14 rounded-2xl bg-sand group-hover:bg-gold group-hover:text-white text-gold-dark flex items-center justify-center text-2xl mb-6 transition">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-obsidian mb-3">تجهيز القاعات والـ VIP</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        تنظيم متكامل يجمع بين الفخامة ودقة التنفيذ عبر أحدث تشكيلات الكنب الملكي، الكراسي الفاخرة، والإضاءة.
+                    </p>
+                </div>
+
+                <!-- خدمة 3 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition duration-300 border border-gold/10 group">
+                    <div class="w-14 h-14 rounded-2xl bg-sand group-hover:bg-gold group-hover:text-white text-gold-dark flex items-center justify-center text-2xl mb-6 transition">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-obsidian mb-3">تجهيز المناسبات الخارجية والحدائق</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        تنسيق متكامل للبيوت، الاستراحات، والساحات المفتوحة يشمل الطاولات، الكراسي، السجاد الفاخر، والإضاءة الليلية.
+                    </p>
+                </div>
+
+                <!-- خدمة 4 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition duration-300 border border-gold/10 group">
+                    <div class="w-14 h-14 rounded-2xl bg-sand group-hover:bg-gold group-hover:text-white text-gold-dark flex items-center justify-center text-2xl mb-6 transition">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-obsidian mb-3">ركن الضيافة الملكي</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        تشكيلات الحلا الفاخر والفطاير والموالح والمشروبات الساخنة والباردة بإشراف طاقم ضيافة محترف.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 5. قسم معرض أعمالنا (Portfolio Gallery - 13 صورة) ================= -->
+    <section id="portfolio" class="py-20 sm:py-28 bg-cream px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+                <span class="text-gold-dark font-bold text-sm block mb-2">من واقع تجهيزاتنا</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-obsidian mb-4">معرض أعمالنا</h2>
+                <p class="text-gray-600 text-base sm:text-lg">لقطات حقيقية من تجهيزات القاعات، المجالس الملكية، وتنسيق المناسبات التي نفذناها بكل شغف وإتقان في الكويت.</p>
+            </div>
+
+            <!-- شبكة الصور الـ 13 من Google Drive -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal" id="portfolio-grid">
+                
+                <!-- صورة 1 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(0)">
+                    <img src="https://lh3.googleusercontent.com/d/1Dl8tThjb9lVn58NDmjJlKr0g62wR573Y=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1Dl8tThjb9lVn58NDmjJlKr0g62wR573Y&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 1"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تجهيز مجالس وصالات VIP</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 2 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(1)">
+                    <img src="https://lh3.googleusercontent.com/d/1A4604EeBuK9Egmc4m4si42fI9Le32ZJa=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1A4604EeBuK9Egmc4m4si42fI9Le32ZJa&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 2"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تنسيق كنب وطاولات فاخرة</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 3 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(2)">
+                    <img src="https://lh3.googleusercontent.com/d/1NehVe2HU6_F324rvOeZnI_W5DUBCYh7g=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1NehVe2HU6_F324rvOeZnI_W5DUBCYh7g&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 3"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تجهيز كراسي وطاولات ملكية</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 4 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(3)">
+                    <img src="https://lh3.googleusercontent.com/d/1xx05wlsyMFGE-LNad7ufBZ3Sk6G0npvU=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1xx05wlsyMFGE-LNad7ufBZ3Sk6G0npvU&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 4"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تنظيم قاعات الأفراح والمناسبات</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 5 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(4)">
+                    <img src="https://lh3.googleusercontent.com/d/1JbuBVvaQpDsQwtOgPjLN-O9fh1N0qwvi=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1JbuBVvaQpDsQwtOgPjLN-O9fh1N0qwvi&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 5"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تنسيق جلسات استقبال راقية</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 6 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(5)">
+                    <img src="https://lh3.googleusercontent.com/d/1KE5p2kpyInN1Fu0AT4L80VYamKM2eWKO=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1KE5p2kpyInN1Fu0AT4L80VYamKM2eWKO&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 6"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">أطقم كنب وكراسي حديثة</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 7 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(6)">
+                    <img src="https://lh3.googleusercontent.com/d/1IsvWsxGbJCdwpdvRwRdC16T9i191JRtd=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1IsvWsxGbJCdwpdvRwRdC16T9i191JRtd&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 7"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تجهيز المناسبات الخارجية والحدائق</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 8 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(7)">
+                    <img src="https://lh3.googleusercontent.com/d/1xYyuq5ef-hkuYjSW2JkQIx2xBCnh3Syz=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1xYyuq5ef-hkuYjSW2JkQIx2xBCnh3Syz&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 8"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تشكيلات طاولات الضيافة العصرية</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 9 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(8)">
+                    <img src="https://lh3.googleusercontent.com/d/1AttZqfFRs1qJBZsVzttBDYOv-VC9-ts8=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1AttZqfFRs1qJBZsVzttBDYOv-VC9-ts8&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 9"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">فخامة التفاصيل في تجهيز القاعات</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 10 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(9)">
+                    <img src="https://lh3.googleusercontent.com/d/1vI4FO4I0vBq0WdNOZBnE6ciDCrOYwjB0=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1vI4FO4I0vBq0WdNOZBnE6ciDCrOYwjB0&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 10"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تجهيزات حفلات الزفاف والملجة</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 11 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(10)">
+                    <img src="https://lh3.googleusercontent.com/d/17HRSO8rwm5ZbqA-Wf5k-6V2WhoWNROPq=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=17HRSO8rwm5ZbqA-Wf5k-6V2WhoWNROPq&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 11"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">تنسيق متكامل للمجالس والاستراحات</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 12 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(11)">
+                    <img src="https://lh3.googleusercontent.com/d/1ugwHDhIOvKPk5PGyFSdQOWOKSSIJAwhr=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1ugwHDhIOvKPk5PGyFSdQOWOKSSIJAwhr&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 12"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">كوش وجلسات VIP بأعلى جودة</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+                <!-- صورة 13 -->
+                <div class="portfolio-item group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer bg-sand aspect-[4/3] border border-gold/15" onclick="openLightbox(12)">
+                    <img src="https://lh3.googleusercontent.com/d/1C43PGX8pwYb0XZWobiIA3GaAUvkjInvm=w1200"
+                         onerror="this.src='https://drive.google.com/thumbnail?id=1C43PGX8pwYb0XZWobiIA3GaAUvkjInvm&sz=w1000'"
+                         alt="تجهيزات الفردوس لأفراح ومناسبات الكويت - 13"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-between p-6 text-white">
+                        <div>
+                            <span class="text-xs text-gold font-bold block">الفردوس لأفراح الكويت</span>
+                            <h4 class="font-bold text-base">أناقة الضيافة وتنسيق المناسبات</h4>
+                        </div>
+                        <span class="w-10 h-10 rounded-full bg-gold/90 text-white flex items-center justify-center"><i class="fa-solid fa-expand text-sm"></i></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة تكبير الصور والتنقل بالأسهم (Lightbox Modal) -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4" onclick="closeLightbox()">
+        <!-- زر الإغلاق -->
+        <button aria-label="إغلاق" onclick="closeLightbox()" class="absolute top-6 left-6 z-50 w-11 h-11 rounded-full bg-white/10 hover:bg-gold text-white text-2xl flex items-center justify-center transition focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- عداد الصور -->
+        <div id="lightbox-counter" class="absolute top-6 right-6 z-50 px-4 py-1.5 rounded-full bg-white/10 text-gold-light text-sm font-bold">
+            1 / 13
+        </div>
+
+        <!-- سهم الصورة السابقة (يمين) -->
+        <button aria-label="الصورة السابقة" onclick="event.stopPropagation(); changeLightboxImage(-1)" class="absolute right-3 sm:right-8 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-gold text-white text-xl flex items-center justify-center transition focus:outline-none">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- محتوى الصورة -->
+        <div class="max-w-5xl w-full text-center px-10 sm:px-16" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="معاينة العمل" class="max-h-[78vh] mx-auto rounded-2xl shadow-2xl border border-gold/30 object-contain">
+            <p id="lightbox-caption" class="text-white font-bold text-base sm:text-lg mt-4"></p>
+        </div>
+
+        <!-- سهم الصورة التالية (يسار) -->
+        <button aria-label="الصورة التالية" onclick="event.stopPropagation(); changeLightboxImage(1)" class="absolute left-3 sm:left-8 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-gold text-white text-xl flex items-center justify-center transition focus:outline-none">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+    </div>
+
+    <!-- ================= 6. قسم الباقات والعروض المميزة (Packages) ================= -->
+    <section id="packages" class="py-20 sm:py-28 bg-obsidian text-white px-4 relative overflow-hidden">
+        <!-- لمسة ديكورية خلفية -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-gold font-bold text-sm block mb-2">عروض حصرية لفترة محدودة</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">الباقات والعروض</h2>
+                <p class="text-gray-300 text-base sm:text-lg">اختر الباقة الأنسب لمناسبتك مع تغطية شاملة لجميع صالات ومناطق الكويت.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch reveal">
+                
+                <!-- الباقة الأولى: الباقة الملكية (ركن الضيافة) -->
+                <div class="bg-charcoal rounded-3xl p-8 sm:p-10 border border-gold/25 flex flex-col justify-between hover:border-gold transition">
+                    <div>
+                        <div class="flex flex-wrap justify-between items-start gap-4 pb-6 border-b border-white/10">
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full bg-gold/20 text-gold text-xs font-bold mb-2">ركن الضيافة</span>
+                                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">الباقة الملكية</h3>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-sm text-gray-400 line-through">300 د.ك</span>
+                                <span class="font-serif text-3xl sm:text-4xl font-bold text-gold">270 <small class="text-base font-sans">د.ك</small></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 space-y-5 text-sm sm:text-base text-gray-200">
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-plate-wheat text-gold mt-1"></i>
+                                <div>
+                                    <strong class="text-white block">أطباق الضيافة:</strong>
+                                    <span>16 طبق حلا وفطاير وموالح فاخرة، مع محمل تمر متحرك.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-mug-saucer text-gold mt-1"></i>
+                                <div>
+                                    <strong class="text-white block">3 عمال شاي وقهوة:</strong>
+                                    <span>شاي أحمر، لومي، زعتر، دارسين، زنجبيل، كرك، وقهوة عربية أصيلة.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-glass-water text-gold mt-1"></i>
+                                <div>
+                                    <strong class="text-white block">أنواع العصائر الطازجة:</strong>
+                                    <span>تشكيلة متنوعة ومنعشة ترضي جميع ضيوفكم.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-map-location-dot text-gold mt-1"></i>
+                                <div>
+                                    <strong class="text-white block">التغطية:</strong>
+                                    <span>تغطية شاملة لجميع مناطق الكويت.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/10">
+                        <a href="https://wa.me/96597922390?text=السلام%20عليكم،%20أرغب%20في%20حجز%20(الباقة%20الملكية%20-%20ركن%20الضيافة%20بـ%20270%20د.ك)" target="_blank"
+                           class="w-full py-3.5 px-6 rounded-full border-2 border-gold text-gold hover:bg-gold hover:text-white font-bold transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>احجز الباقة الملكية</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- الباقة الثانية: الباقة الشاملة للأفراح -->
+                <div class="bg-gradient-to-b from-charcoal to-[#2D271E] rounded-3xl p-8 sm:p-10 border-2 border-gold relative flex flex-col justify-between shadow-2xl">
+                    <div class="absolute -top-4 right-8 gold-gradient text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                        الأكثر طلباً للأفراح والصالات
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap justify-between items-start gap-4 pb-6 border-b border-white/15">
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full bg-gold/20 text-gold text-xs font-bold mb-2">تغطية جميع صالات الكويت</span>
+                                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">الباقة الشاملة للأفراح</h3>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-sm text-gray-400 line-through">1250 د.ك</span>
+                                <span class="font-serif text-3xl sm:text-4xl font-bold text-gold">1150 <small class="text-base font-sans">د.ك</small></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-200">
+                            <!-- الكوشة -->
+                            <div class="bg-black/25 p-4 rounded-2xl border border-white/5">
+                                <h4 class="font-bold text-gold mb-1.5 flex items-center gap-2">
+                                    <i class="fa-solid fa-crown"></i> الكوشة الملكية
+                                </h4>
+                                <ul class="space-y-1 text-xs sm:text-sm text-gray-300 list-disc list-inside">
+                                    <li>كوشة VIP مع 8 كراسي ملكية</li>
+                                    <li>ممر ملكي + 20 سجادة فاخرة</li>
+                                    <li>تجهيز متكامل لصالة العشاء</li>
+                                </ul>
+                            </div>
+
+                            <!-- التصوير -->
+                            <div class="bg-black/25 p-4 rounded-2xl border border-white/5">
+                                <h4 class="font-bold text-gold mb-1.5 flex items-center gap-2">
+                                    <i class="fa-solid fa-camera"></i> التصوير المتكامل
+                                </h4>
+                                <ul class="space-y-1 text-xs sm:text-sm text-gray-300 list-disc list-inside">
+                                    <li>كاميرا ثابتة ومتحركة + درون</li>
+                                    <li>طباعة 250 صورة فاخرة</li>
+                                    <li>2 شاشة عرض عالية الدقة</li>
+                                </ul>
+                            </div>
+
+                            <!-- البوفيه -->
+                            <div class="bg-black/25 p-4 rounded-2xl border border-white/5">
+                                <h4 class="font-bold text-gold mb-1.5 flex items-center gap-2">
+                                    <i class="fa-solid fa-utensils"></i> البوفيه المتكامل
+                                </h4>
+                                <ul class="space-y-1 text-xs sm:text-sm text-gray-300 list-disc list-inside">
+                                    <li>30 سخان متنوع</li>
+                                    <li>30 سلطة ومقبلات</li>
+                                    <li>ركن حلويات + 2 محمل تمر</li>
+                                </ul>
+                            </div>
+
+                            <!-- الوجار والضيافة -->
+                            <div class="bg-black/25 p-4 rounded-2xl border border-white/5">
+                                <h4 class="font-bold text-gold mb-1.5 flex items-center gap-2">
+                                    <i class="fa-solid fa-fire-burner"></i> ركن الوجار والضيافة
+                                </h4>
+                                <ul class="space-y-1 text-xs sm:text-sm text-gray-300 list-disc list-inside">
+                                    <li>15 عامل ضيافة + مشرف</li>
+                                    <li>14 صحن حلا وفطاير</li>
+                                    <li>تشكيلة شاي وبخور وعطور</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/15">
+                        <a href="https://wa.me/96597922390?text=السلام%20عليكم،%20أرغب%20في%20حجز%20(الباقة%20الشاملة%20للأفراح%20بـ%201150%20د.ك)" target="_blank"
+                           class="w-full py-4 px-6 rounded-full gold-gradient text-white font-bold shadow-lg hover:opacity-95 transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>احجز الباقة الشاملة الآن</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 7. قسم التواصل والحجز السريع (Contact & Booking) ================= -->
+    <section id="contact" class="py-20 sm:py-28 bg-sand px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gold/20 grid grid-cols-1 lg:grid-cols-12 reveal">
+                
+                <!-- معلومات التواصل المباشر -->
+                <div class="lg:col-span-5 bg-obsidian text-white p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <span class="text-gold font-bold text-sm block mb-2">نسعد بخدمتكم</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-4">تواصل معنا للحجز</h2>
+                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-8">
+                            فريقنا جاهز للرد على استفساراتكم وتنسيق مواعيد المعاينة والحجز في جميع محافظات ومناطق الكويت.
+                        </p>
+
+                        <div class="space-y-4">
+                            <!-- رقم 1 -->
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-xs text-gray-400 mb-2">الخط الأول للحجز والاستفسار</span>
+                                <div class="flex items-center justify-between gap-2">
+                                    <span class="font-bold text-lg tracking-wider" dir="ltr">9792 2390</span>
+                                    <div class="flex items-center gap-2">
+                                        <a href="tel:+96597922390" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold text-white flex items-center justify-center transition" title="اتصال">
+                                            <i class="fa-solid fa-phone text-sm"></i>
+                                        </a>
+                                        <a href="https://wa.me/96597922390" target="_blank" class="w-10 h-10 rounded-full bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white flex items-center justify-center transition" title="واتساب">
+                                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- رقم 2 -->
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-xs text-gray-400 mb-2">الخط الثاني للحجز والاستفسار</span>
+                                <div class="flex items-center justify-between gap-2">
+                                    <span class="font-bold text-lg tracking-wider" dir="ltr">9553 5011</span>
+                                    <div class="flex items-center gap-2">
+                                        <a href="tel:+96595535011" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold text-white flex items-center justify-center transition" title="اتصال">
+                                            <i class="fa-solid fa-phone text-sm"></i>
+                                        </a>
+                                        <a href="https://wa.me/96595535011" target="_blank" class="w-10 h-10 rounded-full bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white flex items-center justify-center transition" title="واتساب">
+                                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- نطاق التغطية -->
+                            <div class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="w-11 h-11 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-gray-400">نطاق التغطية</span>
+                                    <span class="font-semibold text-sm">جميع مناطق وصالات دولة الكويت</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
+                        <span>متاحون على مدار الأسبوع</span>
+                        <span class="text-gold font-semibold">الفردوس لأفراح الكويت</span>
+                    </div>
+                </div>
+
+                <!-- نموذج الحجز السريع عبر الواتساب -->
+                <div class="lg:col-span-7 p-8 sm:p-12">
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-obsidian mb-2">أرسل تفاصيل مناسبتك</h3>
+                    <p class="text-gray-600 text-sm mb-6">أدخل البيانات التالية وسيتم تحويلك مباشرة إلى محادثة الواتساب برسالة جاهزة ومنسقة.</p>
+
+                    <form id="booking-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-obsidian mb-1.5">الاسم الكريم *</label>
+                                <input type="text" id="client-name" required placeholder="أدخل اسمك"
+                                       class="w-full px-4 py-3 rounded-xl bg-cream border border-gray-200 focus:border-gold focus:outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-obsidian mb-1.5">نوع المناسبة *</label>
+                                <select id="event-type" class="w-full px-4 py-3 rounded-xl bg-cream border border-gray-200 focus:border-gold focus:outline-none text-sm">
+                                    <option value="حفل زفاف">حفل زفاف</option>
+                                    <option value="حفل ملجة / خطوبة">حفل ملجة / خطوبة</option>
+                                    <option value="استقبال / مناسبة عائلية">استقبال / مناسبة عائلية</option>
+                                    <option value="مناسبة خارجية / حديقة">مناسبة خارجية / حديقة</option>
+                                    <option value="ركن ضيافة">ركن ضيافة</option>
+                                    <option value="أخرى">أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-obsidian mb-1.5">التاريخ المتوقع</label>
+                                <input type="date" id="event-date"
+                                       class="w-full px-4 py-3 rounded-xl bg-cream border border-gray-200 focus:border-gold focus:outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-obsidian mb-1.5">المنطقة أو الصالة</label>
+                                <input type="text" id="event-location" placeholder="مثال: الجهراء، السالمية، صالة..."
+                                       class="w-full px-4 py-3 rounded-xl bg-cream border border-gray-200 focus:border-gold focus:outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-obsidian mb-1.5">اختر رقم الواتساب للإرسال</label>
+                            <select id="whatsapp-target" class="w-full px-4 py-3 rounded-xl bg-cream border border-gray-200 focus:border-gold focus:outline-none text-sm">
+                                <option value="96597922390">97922390 (الحجز والاستفسار 1)</option>
+                                <option value="96595535011">95535011 (الحجز والاستفسار 2)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-obsidian mb-1.5">ملاحظات إضافية (اختياري)</label>
+                            <textarea id="event-notes" rows="3" placeholder="اكتب الباقة المطلوبة أو أي تفاصيل إضافية..."
+                                      class="w-full px-4 py-3 rounded-xl bg-cream border border-gray-200 focus:border-gold focus:outline-none text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 px-6 rounded-full gold-gradient text-white font-bold text-base shadow-lg hover:opacity-95 transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>إرسال الطلب عبر الواتساب</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 8. تذييل الصفحة (Footer) ================= -->
+    <footer class="bg-obsidian text-gray-300 py-14 px-4 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-8 pb-8 border-b border-white/10 text-center lg:text-right">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-full gold-gradient flex items-center justify-center text-white">
+                        <i class="fa-solid fa-crown text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-2xl font-bold text-white">الفردوس لأفراح ومناسبات الكويت</span>
+                        <span class="text-xs text-gold-light">فخامة التجهيز وذوق التفاصيل</span>
+                    </div>
+                </div>
+
+                <!-- أزرار اتصال وواتساب مباشرة في الفوتر -->
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="tel:+96597922390" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-gold text-white text-sm font-semibold border border-white/10 transition">
+                        <i class="fa-solid fa-phone text-gold"></i>
+                        <span dir="ltr">97922390</span>
+                    </a>
+                    <a href="tel:+96595535011" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-gold text-white text-sm font-semibold border border-white/10 transition">
+                        <i class="fa-solid fa-phone text-gold"></i>
+                        <span dir="ltr">95535011</span>
+                    </a>
+                    <a href="https://wa.me/96597922390" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white text-sm font-semibold border border-[#25D366]/30 transition">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>واتساب مباشر</span>
+                    </a>
+                </div>
+
+                <!-- أيقونات التواصل الاجتماعي (فيسبوك، إنستغرام، تيك توك) -->
+                <div class="flex items-center justify-center gap-3" aria-label="حسابات التواصل الاجتماعي">
+                    <!-- استبدل قيمة href برابط حساب فيسبوك الخاص بكم -->
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك" title="فيسبوك"
+                       class="w-10 h-10 rounded-full bg-white/5 border border-gold/25 text-gold-light hover:bg-gold hover:text-obsidian hover:border-gold hover:-translate-y-0.5 transition duration-300 flex items-center justify-center text-base">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <!-- استبدل قيمة href برابط حساب إنستغرام الخاص بكم -->
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام" title="إنستغرام"
+                       class="w-10 h-10 rounded-full bg-white/5 border border-gold/25 text-gold-light hover:bg-gold hover:text-obsidian hover:border-gold hover:-translate-y-0.5 transition duration-300 flex items-center justify-center text-base">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <!-- استبدل قيمة href برابط حساب تيك توك الخاص بكم -->
+                    <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="تيك توك" title="تيك توك"
+                       class="w-10 h-10 rounded-full bg-white/5 border border-gold/25 text-gold-light hover:bg-gold hover:text-obsidian hover:border-gold hover:-translate-y-0.5 transition duration-300 flex items-center justify-center text-base">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+                <div class="flex flex-wrap justify-center gap-5">
+                    <a href="#home" class="hover:text-gold transition">الرئيسية</a>
+                    <a href="#about" class="hover:text-gold transition">من نحن</a>
+                    <a href="#services" class="hover:text-gold transition">خدماتنا</a>
+                    <a href="#portfolio" class="hover:text-gold transition">معرض أعمالنا</a>
+                    <a href="#packages" class="hover:text-gold transition">الباقات</a>
+                    <a href="#contact" class="hover:text-gold transition">تواصل معنا</a>
+                </div>
+                <div>
+                    &copy; <span id="year"></span> الفردوس لأفراح ومناسبات الكويت. جميع الحقوق محفوظة.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر واتساب عائم أسفل الشاشة -->
+    <a href="https://wa.me/96597922390?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20تجهيز%20مناسبة" target="_blank" aria-label="تواصل عبر واتساب"
+       class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- ================= الأكواد البرمجية التفاعلية (JavaScript) ================= -->
+    <script>
+        // 1. تحديث السنة تلقائياً في الفوتر
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 2. التحكم في قائمة الموبايل
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 3. مصفوفة صور معرض الأعمال (13 صورة من Google Drive) ونافذة التكبير مع الأسهم
+        const galleryItems = [
+            { id: '1Dl8tThjb9lVn58NDmjJlKr0g62wR573Y', title: 'تجهيز مجالس وصالات VIP' },
+            { id: '1A4604EeBuK9Egmc4m4si42fI9Le32ZJa', title: 'تنسيق كنب وطاولات فاخرة' },
+            { id: '1NehVe2HU6_F324rvOeZnI_W5DUBCYh7g', title: 'تجهيز كراسي وطاولات ملكية' },
+            { id: '1xx05wlsyMFGE-LNad7ufBZ3Sk6G0npvU', title: 'تنظيم قاعات الأفراح والمناسبات' },
+            { id: '1JbuBVvaQpDsQwtOgPjLN-O9fh1N0qwvi', title: 'تنسيق جلسات استقبال راقية' },
+            { id: '1KE5p2kpyInN1Fu0AT4L80VYamKM2eWKO', title: 'أطقم كنب وكراسي حديثة' },
+            { id: '1IsvWsxGbJCdwpdvRwRdC16T9i191JRtd', title: 'تجهيز المناسبات الخارجية والحدائق' },
+            { id: '1xYyuq5ef-hkuYjSW2JkQIx2xBCnh3Syz', title: 'تشكيلات طاولات الضيافة العصرية' },
+            { id: '1AttZqfFRs1qJBZsVzttBDYOv-VC9-ts8', title: 'فخامة التفاصيل في تجهيز القاعات' },
+            { id: '1vI4FO4I0vBq0WdNOZBnE6ciDCrOYwjB0', title: 'تجهيزات حفلات الزفاف والملجة' },
+            { id: '17HRSO8rwm5ZbqA-Wf5k-6V2WhoWNROPq', title: 'تنسيق متكامل للمجالس والاستراحات' },
+            { id: '1ugwHDhIOvKPk5PGyFSdQOWOKSSIJAwhr', title: 'كوش وجلسات VIP بأعلى جودة' },
+            { id: '1C43PGX8pwYb0XZWobiIA3GaAUvkjInvm', title: 'أناقة الضيافة وتنسيق المناسبات' }
+        ];
+
+        let currentImageIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+
+        function updateLightboxContent() {
+            const item = galleryItems[currentImageIndex];
+            lightboxImg.onerror = function() {
+                this.src = `https://drive.google.com/thumbnail?id=${item.id}&sz=w1000`;
+            };
+            lightboxImg.src = `https://lh3.googleusercontent.com/d/${item.id}=w1200`;
+            lightboxCaption.textContent = item.title;
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryItems.length}`;
+        }
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxContent();
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeLightboxImage(step) {
+            currentImageIndex = (currentImageIndex + step + galleryItems.length) % galleryItems.length;
+            updateLightboxContent();
+        }
+
+        // التنقل بلوحة المفاتيح داخل نافذة التكبير (Escape + الأسهم)
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') changeLightboxImage(-1);
+            if (e.key === 'ArrowLeft') changeLightboxImage(1);
+        });
+
+        // 4. إرسال بيانات نموذج الحجز إلى الواتساب مباشرة
+        const bookingForm = document.getElementById('booking-form');
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('client-name').value.trim();
+            const type = document.getElementById('event-type').value;
+            const date = document.getElementById('event-date').value || 'غير محدد';
+            const location = document.getElementById('event-location').value.trim() || 'غير محدد';
+            const whatsappNumber = document.getElementById('whatsapp-target').value;
+            const notes = document.getElementById('event-notes').value.trim();
+
+            let message = `السلام عليكم، أرغب في الاستفسار والحجز لدى *الفردوس لأفراح ومناسبات الكويت*:\n\n`;
+            message += `👤 *الاسم:* ${name}\n`;
+            message += `🎉 *نوع المناسبة:* ${type}\n`;
+            message += `📅 *التاريخ:* ${date}\n`;
+            message += `📍 *المنطقة/الصالة:* ${location}\n`;
+            if (notes) {
+                message += `📝 *ملاحظات:* ${notes}\n`;
+            }
+
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // 5. تأثير الظهور التدريجي للعناصر عند التمرير
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
